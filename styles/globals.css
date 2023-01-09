@@ -20,7 +20,7 @@ body {
   min-width: 250px;
 }
 
-.project-title {
+.project-title.MuiTypography-root {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.15;
   padding-top: 5%;
@@ -31,7 +31,7 @@ body {
 }
 
 @media (max-width: 500px) {
-  .project-title {
+  .project-title.MuiTypography-root {
     font-size: 3rem;
     padding-top: 15%;
     padding-bottom: 20%;
@@ -40,7 +40,7 @@ body {
 
 @media (max-width: 340px) {
   .title.MuiTypography-root,
-  .project-title {
+  .project-title.MuiTypography-root {
     font-size: 2rem;
     padding-top: 15%;
     padding-bottom: 20%;
@@ -91,6 +91,10 @@ body {
   color: #f5f5e3;
   max-width: 345px;
   background: rgba(38, 42, 51, 1);
+}
+
+.card-text.MuiTypography-root {
+  color: #f5f5e3;
 }
 
 .card:hover {

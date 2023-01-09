@@ -18,7 +18,7 @@ export default function ActionAreaCard(name: string, description: string) {
           <Typography gutterBottom variant="h5" component="div">
             {name}
           </Typography>
-          <Typography variant="body2">
+          <Typography variant="body2" className="card-text">
             {description}
           </Typography>
         </CardContent>
