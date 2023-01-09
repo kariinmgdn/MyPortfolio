@@ -4,14 +4,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, run the development server:
 
-```bash
+~~~bash
 npm run dev
 # or
 yarn dev
-```
+~~~
 Next, add [Showdown](https://github.com/showdownjs/showdown), [Mui](https://mui.com/), [React Activity Calendar](https://github.com/grubersjoe/react-activity-calendar) and [@types/js-yaml
 ](https://www.npmjs.com/package/@types/js-yaml):
-```
+~~~
 npm install showdown
 
 npm install @mui/material @emotion/react @emotion/styled
@@ -19,7 +19,7 @@ npm install @mui/material @emotion/react @emotion/styled
 yarn storybook
 
 npm i @types/js-yaml
-```
+~~~
 
 Then, create [env.local](https://nextjs.org/docs/basic-features/environment-variables) in project parent folder and add your [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). 
 

@@ -118,13 +118,27 @@ a:hover {
   }
 }
 
-.images {
-  max-width: 500px;
-}
-
 .image {
   width: 500px;
   max-width: 100%;
+}
+
+@media (max-width: 550px) {
+  .item {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 450px) {
+  .item {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 350px) {
+  .item {
+    max-width: 250px;
+  }
 }
 
 .readMe {
