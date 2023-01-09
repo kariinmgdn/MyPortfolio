@@ -1,4 +1,4 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import showdown from "showdown";
 import { getRepository } from "../src/lib/github";
 import Head from "next/head";
@@ -18,7 +18,7 @@ export async function getServerSideProps({
 
   const converter = new showdown.Converter();
   const html = converter.makeHtml(repository.object.entries[0].object.text);
-
+console.log(html);
   return {
     props: {
       text: html,
