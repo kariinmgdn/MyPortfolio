@@ -9,6 +9,7 @@ body {
 .MuiTypography-root {
   color: #f5f5e3;
 }
+
 a:link, a:visited {
   color: rgb(141, 179, 207) !important;
 }
@@ -118,7 +119,7 @@ a:hover {
 }
 
 .images {
-  max-width: 100%;
+  max-width: 500px;
 }
 
 .image {

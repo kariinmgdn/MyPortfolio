@@ -43,7 +43,8 @@ export default function MyPerfectApp(props: Props) {
       <Typography variant="h2" component="h2" className="project-title">
         {props.name}
       </Typography>
-      <Box className="items" justifyContent="center">
+      <Container>
+        <Box className="items" justifyContent="center">
         <Box className="item">
           {props.images.map((image: { name: string }) => {
             return (
@@ -77,6 +78,8 @@ export default function MyPerfectApp(props: Props) {
           </Typography>
         </Box>
       </Box>
+      </Container>
+      
     </Container>
   );
 }
