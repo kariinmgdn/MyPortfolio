@@ -87,7 +87,8 @@ body {
   gap: 2rem;
 }
 
-.card {
+.card.MuiCard-root {
+  color: #f5f5e3;
   max-width: 345px;
   background: rgba(38, 42, 51, 1);
 }
