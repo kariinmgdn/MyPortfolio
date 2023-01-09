@@ -1,4 +1,7 @@
-export const getContributions = async (username: string, key: string | undefined) => {
+export const getContributions = async (
+  username: string,
+  key: string | undefined
+) => {
   const headers = {
     Authorization: `bearer ${key}`,
   };
@@ -44,7 +47,11 @@ export const getContributions = async (username: string, key: string | undefined
   return data;
 };
 
-export const getRepository = async (username: string, name: string, key: string | undefined) => {
+export const getRepository = async (
+  username: string,
+  name: string,
+  key: string | undefined
+) => {
   const headers = {
     Authorization: `bearer ${key}`,
   };

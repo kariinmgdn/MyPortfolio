@@ -1,20 +1,24 @@
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import showdown from "showdown";
 import { getRepository } from "../src/lib/github";
+import Head from "next/head";
 
-export async function getServerSideProps({ params }: { params: {PageID: string} }) {
-  
+export async function getServerSideProps({
+  params,
+}: {
+  params: { PageID: string };
+}) {
   const pageID = params.PageID;
   const data = await getRepository("kariinmgdn", pageID, process.env.KEY);
   const repository = data.data.user.repository;
 
   if (!repository || !repository.object) {
-    return {redirect:{destination:"/"}};
+    return { redirect: { destination: "/" } };
   }
 
   const converter = new showdown.Converter();
   const html = converter.makeHtml(repository.object.entries[0].object.text);
-  
+
   return {
     props: {
       text: html,
@@ -32,44 +36,47 @@ interface Props {
 
 export default function MyPerfectApp(props: Props) {
   return (
-    <Container maxWidth="xl">
-        <Stack direction="column" spacing={10} justifyContent="center">
-          <Stack direction="row" justifyContent="center">
-            <Typography justifyContent="center" variant="h2" component="h2">
-              {props.name}
-            </Typography>
-          </Stack>
-
-          <Stack spacing={15} direction="row" justifyContent="center">
-            <Stack spacing={3} direction="column" justifyContent="center">
-              {props.images.map((image: { name: string }) => {
-                return (
+    <Container maxWidth="xl" className="ProjectPage-container">
+      <Head>
+        <title>{props.name}</title>
+      </Head>
+      <Typography variant="h2" component="h2" className="project-title">
+        {props.name}
+      </Typography>
+      <Box className="items" justifyContent="center">
+        <Box className="item">
+          {props.images.map((image: { name: string }) => {
+            return (
+              <Box key={image.name}>
+                <picture>
                   <img
-                    key={image.name}
-                    width="500"
+                    className="image"
                     alt={image.name}
                     src={`https://raw.githubusercontent.com/kariinmgdn/${props.name}/main/src/portfolio/images/${image.name}`}
                   />
-                );
-              })}
-            </Stack>
-            <Box sx={{ width: "100%", maxWidth: 500 }}>
-              <Typography variant="subtitle1" gutterBottom>
-                <div dangerouslySetInnerHTML={{ __html: props.text }}></div>
-              </Typography>
+                </picture>
+              </Box>
+            );
+          })}
+        </Box>
 
-              <Button
-                onClick={() =>
-                  window.open("https://github.com/kariinmgdn/" + props.name)
-                }
-              >
-                <Typography variant="button" display="block" gutterBottom>
-                  PROJECT LINK TO GITHUB
-                </Typography>
-              </Button>
-            </Box>
-          </Stack>
-        </Stack>
+        <Box className="item">
+          <Typography variant="subtitle1" className="readMe">
+            <div dangerouslySetInnerHTML={{ __html: props.text }}></div>
+          </Typography>
+
+          <Typography
+            variant="button"
+            display="block"
+            className="link"
+            onClick={() =>
+              window.open("https://github.com/kariinmgdn/" + props.name)
+            }
+          >
+            PROJECT LINK TO GITHUB
+          </Typography>
+        </Box>
+      </Box>
     </Container>
   );
 }
