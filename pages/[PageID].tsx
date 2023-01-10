@@ -18,7 +18,6 @@ export async function getServerSideProps({
 
   const converter = new showdown.Converter();
   const html = converter.makeHtml(repository.object.entries[0].object.text);
-console.log(html);
   return {
     props: {
       text: html,
@@ -40,7 +39,7 @@ export default function MyPerfectApp(props: Props) {
       <Head>
         <title>{props.name}</title>
       </Head>
-      <Typography variant="h2" component="h2" className="project-title">
+      <Typography variant="h2" component="h2" className="title">
         {props.name}
       </Typography>
       <Container>
